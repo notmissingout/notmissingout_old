@@ -1,0 +1,20 @@
+{% extends "cook/layout.html" %}
+
+{% block title %}Cook Around the World{% endblock %}
+
+{% block content %}
+    <ul>
+    {% with height=20 %}
+    {% for recipe in recipes %}
+    <li>
+    <a href="{% url 'cook:recipe' recipe.slug %}">
+      {% with flag=recipe.location.primary_flag %}
+      <img src="{{ flag.image.url }}" alt="{{ flag }}" width="{{ width }}" height="{{ height }}" alt="{{ flag.name }}">
+      {% endwith %}
+      {{ recipe }} ({{ recipe.location.name }})</a>
+
+    </li>
+    {% endfor %}
+    {% endwith %}
+    </ul>
+{% endblock %}

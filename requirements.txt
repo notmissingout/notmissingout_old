@@ -1,1 +1,5 @@
 Django==1.10.1
+django-markdownx==1.6.3
+django-summernote==0.8.5
+Markdown==2.6.7
+Pillow==3.3.1
