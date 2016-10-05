@@ -1,6 +1,9 @@
 from django.db import models
 from django import forms
-from markdownx.models import MarkdownxField
+
+
+class HtmlField(models.TextField):
+    pass
 
 
 class Recipe(models.Model):
@@ -21,8 +24,8 @@ class Recipe(models.Model):
         help_text="Name and description of the cook or cooks",
     )
 
-    body = MarkdownxField(
-        help_text="Body of the recipe, in markdown format.",
+    body = HtmlField(
+        help_text="Body of the recipe, in HTML format.",
     )
 
     location = models.ForeignKey(

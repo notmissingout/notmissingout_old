@@ -21,5 +21,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^cook/', include('cook.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^markdownx/', include('markdownx.urls')),
+    url(r'^summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

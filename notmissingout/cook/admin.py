@@ -1,16 +1,17 @@
-from .models import Recipe, Location, Flag
+from .models import Recipe, Location, Flag, HtmlField
 from django import forms
 from django.contrib import admin
 from django.db import models
-from markdownx.admin import MarkdownxModelAdmin
+from django_summernote.widgets import SummernoteWidget
 
 
-class RecipeAdmin(MarkdownxModelAdmin):
+class RecipeAdmin(admin.ModelAdmin):
     date_heirarchy = 'date'
     prepopulated_fields = {"slug": ("title",)}
 
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput(attrs={'size': '60'})},
+        HtmlField: {'widget': SummernoteWidget},
     }
 
     fields = (

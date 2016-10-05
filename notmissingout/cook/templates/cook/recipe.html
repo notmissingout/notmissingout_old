@@ -4,6 +4,6 @@
 
 {% block content %}
   <div>
-    {{ recipe.body }}
+    {{ recipe.body|safe }}
   </div>
 {% endblock %}
