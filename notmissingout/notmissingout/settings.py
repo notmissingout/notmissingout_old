@@ -122,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_media")
 MEDIA_URL = '/media/'
@@ -173,27 +176,21 @@ SUMMERNOTE_CONFIG = {
     #'attachment_model': 'my.custom.attachment.model', # must inherit 'django_summernote.AbstractAttachment'
 
     # Set common css/js media files
-    'external_css': (
-        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+    'default_css': (
+        '/static/bootstrap-3.3.7.min.css',
     ),
-    'external_js': (
-        '//code.jquery.com/jquery-1.9.1.min.js',
-        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',
+    'default_js': (
+        '/static/jquery-1.12.4.min.js',
+        '/static/bootstrap-3.3.7.min.js',
     ),
-    'internal_css': (
+    'css': (
         '/static/django_summernote/summernote.css',
     ),
-    'internal_js': (
+    'js': (
         '/static/django_summernote/jquery.ui.widget.js',
         '/static/django_summernote/jquery.iframe-transport.js',
         '/static/django_summernote/jquery.fileupload.js',
         '/static/django_summernote/summernote.min.js',
-    ),
-
-    # You can add custom css/js for SummernoteWidget.
-    'css': (
-    ),
-    'js': (
     ),
 
     # And also for SummernoteInplaceWidget.
@@ -205,10 +202,4 @@ SUMMERNOTE_CONFIG = {
 
     # You can disable file upload feature.
     'disable_upload': False,
-
-    # Codemirror as codeview
-    'codemirror': {
-            # Please visit http://summernote.org/examples/#codemirror-as-codeview
-            'theme': 'monokai',
-    },
 }
