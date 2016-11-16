@@ -135,32 +135,27 @@ SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode
     'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
 
-    # Using Summernote Air-mode
-    'airMode': False,
-
-    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
-    # (Firefox, Chrome only)
-    'styleWithTags': True,
-
-    # Set text direction : 'left to right' is default.
-    'direction': 'ltr',
-
     # Change editor size
     'width': '100%',
     'height': '480',
 
-    # Use proper language setting automatically (default)
-    'lang': None,
-
-    # Or, set editor language/locale forcely
-    'lang': 'ko-KR',
+    # Using Summernote Air-mode
+    'airMode': False,
 
     # Customize toolbar buttons
-    'toolba': [
-        ['style', ['style']],
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['para', ['ul', 'ol', 'height']],
-        ['insert', ['link']],
+    'toolbar': [
+        ['undo', ['undo', 'redo']],
+        ['style', [
+            'style',
+            'bold', 'italic', 'underline',
+            'strikethrough', 'superscript', 'subscript',
+            'color',
+            'clear',
+        ]],
+        ['fontsize', ['fontname', 'fontsize', 'height']],
+        ['para', ['ul', 'ol', 'paragraph', '']],
+        ['insert', ['link', 'picture', 'video', 'table', 'hr']],
+        ['extra', ['codeview', 'help']],
     ],
 
     # Need authentication while uploading attachments.
