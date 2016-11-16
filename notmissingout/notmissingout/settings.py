@@ -130,7 +130,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_media")
 MEDIA_URL = '/media/'
 
 
-
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode
     'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
@@ -180,11 +179,16 @@ SUMMERNOTE_CONFIG = {
     ),
     'css': (
         '/static/django_summernote/summernote.css',
+        '/static/codemirror-3.20.0/codemirror.css',
+        '/static/codemirror-3.20.0/monokai.css',
     ),
     'js': (
         '/static/django_summernote/jquery.ui.widget.js',
         '/static/django_summernote/jquery.iframe-transport.js',
         '/static/django_summernote/jquery.fileupload.js',
+        '/static/codemirror-3.20.0/codemirror.js',
+        '/static/codemirror-3.20.0/xml.js',
+        '/static/codemirror-3.20.0/formatting.js',
         '/static/django_summernote/summernote.min.js',
     ),
 
@@ -197,4 +201,10 @@ SUMMERNOTE_CONFIG = {
 
     # You can disable file upload feature.
     'disable_upload': False,
+
+    # Codemirror as codeview
+    'codemirror': {
+        # Please visit http://summernote.org/examples/#codemirror-as-codeview
+        'theme': 'monokai',
+    },
 }
