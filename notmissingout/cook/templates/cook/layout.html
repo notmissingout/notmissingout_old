@@ -37,9 +37,9 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 1,
+          zoom: 2,
           minZoom: 1,
-          center: new google.maps.LatLng(0, 0)
+          center: new google.maps.LatLng(markers[0].position.lat, markers[0].position.lng)
         });
 
         for (var i = 0; i < markers.length; i++) {

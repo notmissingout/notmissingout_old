@@ -3,7 +3,21 @@
 {% block title %}Cook Around the World - {{ recipe.title }}{% endblock %}
 
 {% block content %}
+
+CENTER MAP ON THIS LOCATION
+
+<img src="{{ recipe.location.primary_flag.image.url }}">
   <div>
     {{ recipe.body|safe }}
   </div>
+
+  PHOTOS GO HERE
+
+  <dl>
+    <dt>Date</dt><dd>{{ recipe.date }}</dd>
+    <dt>Cook</dt><dd>{{ recipe.cook }}</dd>
+  </dl>
+
+  <hr>
+  PREV AND NEXT LINKS
 {% endblock %}
