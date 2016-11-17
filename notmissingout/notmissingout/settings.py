@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'cook',
+    'sanitizer',
 ]
 
 MIDDLEWARE = [
@@ -151,9 +152,9 @@ SUMMERNOTE_CONFIG = {
             'color',
             'clear',
         ]],
-        ['fontsize', ['fontname', 'fontsize', 'height']],
+        ['fontsize', ['fontsize', 'height']],
         ['para', ['ul', 'ol', 'paragraph', '']],
-        ['insert', ['link', 'picture', 'video', 'table', 'hr']],
+        ['insert', ['link', 'picture', 'table', 'hr']],
         ['extra', ['codeview', 'help']],
     ],
 

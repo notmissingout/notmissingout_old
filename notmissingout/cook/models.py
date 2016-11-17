@@ -1,8 +1,9 @@
 from django.db import models
 from django import forms
+from sanitizer.models import SanitizedTextField
 
 
-class HtmlField(models.TextField):
+class HtmlField(SanitizedTextField):
     pass
 
 
@@ -25,6 +26,33 @@ class Recipe(models.Model):
     )
 
     body = HtmlField(
+        allowed_tags=[
+            'p', 'br',
+            'blockquote',
+            'pre',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'b', 'i', 'u', 'strike', 'sup', 'sub',
+            'div', 'span',
+            'font',
+            'ul', 'ol', 'li',
+            'a', 'img',
+            'hr',
+            'table', 'tbody', 'tr', 'td', 'th',
+        ],
+        allowed_attributes=[
+            'style',
+            'href',
+            'src',
+            'color',
+        ],
+        allowed_styles=[
+            'background-color',
+            'line-height',
+            'font-size',
+            'text-align',
+            'margin-left',
+        ],
+        strip=True,
         help_text="Body of the recipe, in HTML format.",
     )
 
