@@ -1,9 +1,0 @@
-bleach==1.5.0
-Django==1.10.1
-django-html-sanitizer==0.1.5
-django-markdownx==1.6.3
-django-summernote==0.8.5
-html5lib==0.9999999
-Markdown==2.6.7
-Pillow==3.3.1
-six==1.10.0

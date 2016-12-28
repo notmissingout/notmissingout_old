@@ -1,4 +1,0 @@
-Django>=1.10
-django-markdownx>=1.6.3
-django-summernote
-django-html_sanitizer
