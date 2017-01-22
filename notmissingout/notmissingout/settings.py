@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'summernote_overrides',
     'django_summernote',
     'cook',
+    'navigation',
     'sanitizer',
 ) + (('debug_toolbar',) if DJANGO_DEBUG_TOOLBAR else ())
 

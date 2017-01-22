@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+{% load static from staticfiles %}
+<head>
+  <title>{% block title %}Not missing out{% endblock %}</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static "navigation/layout.css" %}" type="text/css">
+</head>
+<body>
+  <div class="banner">
+    <img src="{% static "navigation/notmissingoutlogo1.png" %}" width="1008" height="154" border="0" alt="not missing out logo">
+  </div>
+
+  <table><tr><td style="vertical-align: top">
+  <table class="menu">
+    <tbody>
+      <tr><td>Little Learners Explore</td></tr>
+      <!--<tr><td bgcolor="#9172ec"><font color="#ffffff">The Victorians</font></td></tr> -->
+      <tr><td>The Victorians</font></td></tr>
+      <tr><td><a href="{% url 'navigation:victorian_health' %}">Health</a></td></tr>
+      <tr><td><a href="{% url 'navigation:victorian_communication' %}">Communication</a></td></tr>
+      <!--
+      <tr><td>Entertainment</td></tr>
+      <tr><td>Nature Rangers</td></tr>
+      <tr><td>The Body</td></tr>
+      <tr><td>Senses</td></tr>
+      <tr><td>Keep healthy</td></tr>
+      <tr><td>Skin</td></tr>
+      <tr><td>Other</td></tr>
+      <tr><td>Outdoor</td></tr>
+      <tr><td>Bears</td></tr>
+      <tr><td>Christmas</td></tr>
+      <tr><td>Noakes Grove</td></tr>
+      -->
+      <tr><td><a href="{% url 'navigation:reflections' %}">Reflections</a></td></tr>
+    </tbody>
+  </table>
+  <td>
+    <div>{% block content %}{% endblock %}</div>
+</td></tr>
+</table>
+</body>
+</html>
