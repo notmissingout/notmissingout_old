@@ -19,18 +19,31 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w_qa9pc!kn+t2%d*yi^-!#_ia*08$bsfmgguq20d+7uw688-cv'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool("true" == os.environ.get("DJANGO_DEBUG", "false"))
+TEMPLATE_DEBUG = DEBUG
+DJANGO_DEBUG_TOOLBAR = (
+    DEBUG and
+    bool("true" == os.environ.get("DJANGO_DEBUG_TOOLBAR", "false"))
+)
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG:
+    SECRET_KEY = '9g4z%=i76+d=-n9uxkb*o&ex79mo8bx_&8i!qp*p2@*kp91mhq'
+else:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
+# Who gets emails about site errors.
+ADMINS = [
+    ('Richard Boulton', 'richard@tartarus.org'),
+]
+MANAGERS = ADMINS
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'ideas4kids.org').split(';')
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +53,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cook',
     'sanitizer',
-]
+) + (('debug_toolbar',) if DJANGO_DEBUG_TOOLBAR else ())
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +64,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if DJANGO_DEBUG_TOOLBAR:
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = 'notmissingout.urls'
 
@@ -184,8 +200,13 @@ SUMMERNOTE_CONFIG = {
     ),
     'js': (
         '/static/django_summernote/jquery.ui.widget.js',
-        '/static/django_summernote/jquery.iframe-transport.js',
-        '/static/django_summernote/jquery.fileupload.js',
+        '/static/fileupload/load-image.all.min.js',
+        '/static/fileupload/canvas-to-blob.min.js',
+        '/static/fileupload/jquery.iframe-transport.js',
+        '/static/fileupload/jquery.fileupload.js',
+        '/static/fileupload/jquery.fileupload-process.js',
+        '/static/fileupload/jquery.fileupload-image.js',
+        '/static/fileupload/resize_image.js',
         '/static/codemirror-3.20.0/codemirror.js',
         '/static/codemirror-3.20.0/xml.js',
         '/static/codemirror-3.20.0/formatting.js',
