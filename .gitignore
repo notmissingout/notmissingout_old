@@ -1,2 +1,4 @@
 *.pyc
 collected_static
+uploaded_media
+notmissingout_db
