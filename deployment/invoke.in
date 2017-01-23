@@ -29,6 +29,11 @@ gunicorn_stop() {
     kill -INT `cat "$PIDFILE"`
 }
 
+gunicorn_restart() {
+    [ -f "$PIDFILE" ] && kill -INT `cat "$PIDFILE"`
+    gunicorn_start
+}
+
 shell() {
     ENV/bin/python notmissingout/manage.py shell
 }
@@ -56,8 +61,7 @@ case $1 in
         gunicorn_stop ;;
     restart|reload)
         cd $TOPDIR/releases/current
-        gunicorn_stop
-        gunicorn_start ;;
+        gunicorn_restart ;;
     shell)
         cd $TOPDIR/releases/current
         shell ;;
