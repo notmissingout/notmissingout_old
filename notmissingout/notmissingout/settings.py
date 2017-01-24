@@ -21,7 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool("true" == os.environ.get("DJANGO_DEBUG", "false"))
-TEMPLATE_DEBUG = DEBUG
 DJANGO_DEBUG_TOOLBAR = (
     DEBUG and
     bool("true" == os.environ.get("DJANGO_DEBUG_TOOLBAR", "false"))
