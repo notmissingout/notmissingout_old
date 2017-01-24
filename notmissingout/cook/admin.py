@@ -1,4 +1,5 @@
-from .models import Recipe, Location, Flag, HtmlField
+from .models import Recipe, Location, Flag
+from common import HtmlField
 from django import forms
 from django.contrib import admin
 from django.db import models
