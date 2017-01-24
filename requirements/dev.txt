@@ -26,3 +26,4 @@ sqlparse==0.2.2
 waitress==1.0.1
 WebOb==1.7.0
 WebTest==2.0.24
+yapf==0.15.1
