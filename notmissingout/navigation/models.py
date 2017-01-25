@@ -19,6 +19,11 @@ class Article(models.Model):
         help_text="Body of the article",
     )
 
+    section = models.ForeignKey(
+        "Section",
+        help_text="Section containing this article",
+    )
+
 
 class Section(models.Model):
     title = models.TextField(
