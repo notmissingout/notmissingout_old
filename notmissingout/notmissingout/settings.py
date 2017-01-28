@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mptt',
     'summernote_overrides',
     'django_summernote',
     'cook',
