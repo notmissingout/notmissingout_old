@@ -14,6 +14,7 @@
   <table><tr style="height:100%"><td style="vertical-align: top" style="height: 100%">
   <table class="menu" height="100%">
     <tbody>
+      {% block navigation %}
       <!--
       <tr><td>Little Learners Explore</td></tr>
       <!--<tr><td bgcolor="#9172ec"><font color="#ffffff">The Victorians</font></td></tr> -->
@@ -22,6 +23,9 @@
     -->
       <tr><td><a href="{% url 'navigation:victorian_health' %}">Victorian Health</a></td></tr>
       <tr><td><a href="{% url 'navigation:victorian_communication' %}">Victorian Communication</a></td></tr>
+      <tr><td><a href="{% url 'navigation:victorian_entertainment' %}">Victorian Entertainment</a></td></tr>
+      <tr><td><a href="{% url 'navigation:victorian_empire' %}">Victorian Empire</a></td></tr>
+      <tr><td><a href="{% url 'navigation:victorian_childhood' %}">Victorian Childhood</a></td></tr>
       <!--
       <tr><td>Entertainment</td></tr>
       <tr><td>Nature Rangers</td></tr>
@@ -36,6 +40,7 @@
       <tr><td>Noakes Grove</td></tr>
       -->
       <tr><td><a href="{% url 'navigation:reflections' %}">Reflections</a></td></tr>
+      {% endblock navigation %}
     </tbody>
   </table>
   <td>

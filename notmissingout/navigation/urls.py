@@ -15,6 +15,21 @@ urlpatterns = [
         views.victorian_communication,
         name='victorian_communication'
     ),
+    url(
+        r'^little_learners/victorians/entertainment$',
+        views.victorian_entertainment,
+        name='victorian_entertainment'
+    ),
+    url(
+        r'^little_learners/victorians/empire$',
+        views.victorian_empire,
+        name='victorian_empire'
+    ),
+    url(
+        r'^little_learners/victorians/childhood$',
+        views.victorian_childhood,
+        name='victorian_childhood'
+    ),
     url(r'^reflections$', views.reflections, name='reflections'),
     url(r'^(?P<path>.*)/?$', views.navigation, name='navigation'),
 ]
