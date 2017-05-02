@@ -27,7 +27,7 @@ class Article(models.Model):
 
     @property
     def url(self):
-        return self.section.url + self.slug
+        return '/'.join((self.section.url, self.slug))
 
 
 class Section(MPTTModel):
@@ -42,8 +42,13 @@ class Section(MPTTModel):
     parent = TreeForeignKey(
         "self",
         null=True,
+        blank=True,
         help_text="Parent section, if there is one",
     )
+
+    @property
+    def articles(self):
+        return self.article_set.all().order_by("title")
 
     def __str__(self):
         return self.title
@@ -55,8 +60,8 @@ class Section(MPTTModel):
     def url(self):
         ancestor_slugs = [
             section.slug
-            for section in self.get_ancestors(include_self=True)[1:]
+            for section in self.get_ancestors(include_self=True)
         ]
         if len(ancestor_slugs) == 0:
-            return '/'
-        return '/' + '/'.join(ancestor_slugs) + '/'
+            return ''
+        return '/'.join(ancestor_slugs)

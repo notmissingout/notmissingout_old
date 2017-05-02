@@ -32,8 +32,6 @@ def reflections(request):
 
 
 def navigation(request, path):
-    path = '/' + path.strip('/')
-
     def lookup_section(path):
         try:
             slug = path.split('/')[-1]
@@ -42,8 +40,8 @@ def navigation(request, path):
 
         candidates = Section.objects.filter(slug=slug)
         for candidate in candidates:
-            print candidate.url, path
-            if candidate.url == path + '/':
+            print(candidate.url, path)
+            if candidate.url == path:
                 return candidate
 
         return None
@@ -69,7 +67,6 @@ def navigation(request, path):
     if article_instance is None:
         return render(
             request, 'navigation/section.html', {
-                "nav": section_instance,
                 "section": section_instance,
             }
         )

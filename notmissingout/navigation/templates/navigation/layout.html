@@ -8,46 +8,15 @@
 </head>
 <body>
   <div class="banner">
-    <img src="{% static "navigation/notmissingoutlogo1.png" %}" width="1008" height="154" border="0" alt="not missing out logo">
+    <img src="{% static "navigation/notmissingoutlogo1.png" %}" id="logo" width="1008" height="154" alt="not missing out logo">
+    <ul>
+      <li><a href="{% url 'navigation:navigation' 'topics' %}"><img src="{% static "navigation/topics.png" %}" width="135" height="33" alt="topics"></a></li>
+      <li><a href="{% url 'navigation:navigation' 'trips' %}"><img src="{% static "navigation/trips.png" %}" width="135" height="33" alt="trips"></a></li>
+      <li><a href="{% url 'navigation:navigation' 'groups' %}"><img src="{% static "navigation/groups.png" %}" width="135" height="33" alt="groups"></a></li>
+      <li><a href="{% url 'navigation:navigation' 'other' %}"><img src="{% static "navigation/other.png" %}" width="135" height="33" alt="other"></a></li>
+    </ul>
   </div>
-
-  <table><tr><td style="vertical-align: top">
-  <table class="menu">
-    <tbody>
-      {% block navigation %}
-      <!--
-      <tr><td>Little Learners Explore</td></tr>
-      <!--<tr><td bgcolor="#9172ec"><font color="#ffffff">The Victorians</font></td></tr> -->
-      <!--
-      <tr><td>The Victorians</font></td></tr>
-    -->
-      <tr><td><a href="{% url 'navigation:victorian_health' %}">Victorian Health</a></td></tr>
-      <tr><td><a href="{% url 'navigation:victorian_communication' %}">Victorian Communication</a></td></tr>
-      <tr><td><a href="{% url 'navigation:victorian_entertainment' %}">Victorian Entertainment</a></td></tr>
-      <tr><td><a href="{% url 'navigation:victorian_empire' %}">Victorian Empire</a></td></tr>
-      <tr><td><a href="{% url 'navigation:victorian_childhood' %}">Victorian Childhood</a></td></tr>
-      <!--
-      <tr><td>Entertainment</td></tr>
-      <tr><td>Nature Rangers</td></tr>
-      <tr><td>The Body</td></tr>
-      <tr><td>Senses</td></tr>
-      <tr><td>Keep healthy</td></tr>
-      <tr><td>Skin</td></tr>
-      <tr><td>Other</td></tr>
-      <tr><td>Outdoor</td></tr>
-      <tr><td>Bears</td></tr>
-      <tr><td>Christmas</td></tr>
-      <tr><td>Noakes Grove</td></tr>
-      -->
-      <tr><td><a href="{% url 'navigation:reflections' %}">Reflections</a></td></tr>
-      {% endblock navigation %}
-    </tbody>
-  </table>
-  <td>
-    <div>{% block content %}{% endblock %}</div>
-</td></tr>
-</table>
-
+  <div>{% block content %}{% endblock %}</div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,0 +1,9 @@
+{% extends "navigation/layout.html" %}
+
+{% block title %}Little Learners Explore The Victorians{% endblock %}
+{% block content %}
+
+<div class="heading">{{ article.title }}</div>
+<div class="content">{{ article.body | safe }}</div>
+
+{% endblock %}

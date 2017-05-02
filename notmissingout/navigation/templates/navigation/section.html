@@ -1,0 +1,37 @@
+{% extends "navigation/layout.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% load mptt_tags %}
+
+{% block content %}
+{% load static from staticfiles %}
+
+{% spaceless %}
+<ol class="breadcrumb">
+  {% for ancestor in section.get_ancestors %}
+  <li>
+    <a href="{% url "navigation:navigation" ancestor.url %}">{{ ancestor.title }}</a>
+  </li>
+  {% endfor %}
+  <li>{{ section.title }}</li>
+</ol>
+
+<ol>
+  {% for child in section.get_children %}
+  <li>
+  <a href="{% url "navigation:navigation" child.url %}">{{ child.title }}</a>
+  </li>
+  {% endfor %}
+</ol>
+
+<ol>
+  {% for article in section.articles %}
+  <li>
+  <a href="{% url "navigation:navigation" article.url %}">{{ article.title }}</a>
+  </li>
+  {% endfor %}
+</ol>
+{% endspaceless %}
+
+{% endblock content %}
