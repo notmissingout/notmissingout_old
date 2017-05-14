@@ -3,7 +3,6 @@ from common import HtmlField
 from django import forms
 from django.contrib import admin
 from django.db import models
-from django_summernote.widgets import SummernoteWidget
 from mptt.admin import DraggableMPTTAdmin
 
 
@@ -13,9 +12,6 @@ class ArticleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {
             'widget': forms.TextInput(attrs={'size': '60'})
-        },
-        HtmlField: {
-            'widget': SummernoteWidget
         },
     }
 

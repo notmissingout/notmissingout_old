@@ -21,7 +21,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^world/cook/', include('cook.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^summernote/', include('django_summernote.urls')),
+    url(r'^_upload/', include('fileupload.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

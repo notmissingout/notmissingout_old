@@ -50,8 +50,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mptt',
-    'summernote_overrides',
-    'django_summernote',
     'cook',
     'navigation',
     'sanitizer',
@@ -146,88 +144,3 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_media")
 MEDIA_URL = '/media/'
-
-
-SUMMERNOTE_CONFIG = {
-    # Using SummernoteWidget - iframe mode
-    'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
-
-    # Change editor size
-    'width': '100%',
-    'height': '480',
-
-    # Using Summernote Air-mode
-    'airMode': False,
-
-    # Customize toolbar buttons
-    'toolbar': [
-        ['undo', ['undo', 'redo']],
-        ['style', [
-            'style',
-            'bold', 'italic', 'underline',
-            'strikethrough', 'superscript', 'subscript',
-            'color',
-            'clear',
-        ]],
-        ['fontsize', ['fontsize', 'height']],
-        ['para', ['ul', 'ol', 'paragraph', '']],
-        ['insert', ['link', 'picture', 'table', 'hr']],
-        ['extra', ['codeview', 'help']],
-    ],
-
-    # Need authentication while uploading attachments.
-    'attachment_require_authentication': True,
-
-    # Set `upload_to` function for attachments.
-    #'attachment_upload_to': my_custom_upload_to_func(),
-
-    # Set custom storage class for attachments.
-    #'attachment_storage_class': 'my.custom.storage.class.name',
-
-    # Set custom model for attachments (default: 'django_summernote.Attachment')
-    #'attachment_model': 'my.custom.attachment.model', # must inherit 'django_summernote.AbstractAttachment'
-
-    # Set common css/js media files
-    'default_css': (
-        '/static/bootstrap-3.3.7.min.css',
-    ),
-    'default_js': (
-        '/static/jquery-1.12.4.min.js',
-        '/static/bootstrap-3.3.7.min.js',
-    ),
-    'css': (
-        '/static/django_summernote/summernote.css',
-        '/static/codemirror-3.20.0/codemirror.css',
-        '/static/codemirror-3.20.0/monokai.css',
-    ),
-    'js': (
-        '/static/django_summernote/jquery.ui.widget.js',
-        '/static/fileupload/load-image.all.min.js',
-        '/static/fileupload/canvas-to-blob.min.js',
-        '/static/fileupload/jquery.iframe-transport.js',
-        '/static/fileupload/jquery.fileupload.js',
-        '/static/fileupload/jquery.fileupload-process.js',
-        '/static/fileupload/jquery.fileupload-image.js',
-        '/static/fileupload/resize_image.js',
-        '/static/codemirror-3.20.0/codemirror.js',
-        '/static/codemirror-3.20.0/xml.js',
-        '/static/codemirror-3.20.0/formatting.js',
-        '/static/django_summernote/summernote.min.js',
-    ),
-
-    # And also for SummernoteInplaceWidget.
-    # !!! Be sure to put {{ form.media }} in template before initiate summernote.
-    'css_for_inplace': (
-    ),
-    'js_for_inplace': (
-    ),
-
-    # You can disable file upload feature.
-    'disable_upload': False,
-
-    # Codemirror as codeview
-    'codemirror': {
-        # Please visit http://summernote.org/examples/#codemirror-as-codeview
-        'theme': 'monokai',
-    },
-}

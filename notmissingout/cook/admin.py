@@ -3,7 +3,7 @@ from common import HtmlField
 from django import forms
 from django.contrib import admin
 from django.db import models
-from django_summernote.widgets import SummernoteWidget
+from mediumeditor.admin import MediumEditorAdmin
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -12,7 +12,6 @@ class RecipeAdmin(admin.ModelAdmin):
 
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput(attrs={'size': '60'})},
-        HtmlField: {'widget': SummernoteWidget},
     }
 
     fields = (
